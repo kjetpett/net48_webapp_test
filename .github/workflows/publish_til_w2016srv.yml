@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Hent variabel fra secrets
       run: |
-        echo "dette er en test"
+        echo ${{ secrets.REPO_SECRET }}
     
     - uses: actions/checkout@v2
     
