@@ -11,7 +11,7 @@ jobs:
     steps:
     - name: Hent variabel fra secrets
       run: |
-        echo ${{ secrets.INSTALL_FOLDER }}
+        echo "dette er en test"
     
     - uses: actions/checkout@v2
     
