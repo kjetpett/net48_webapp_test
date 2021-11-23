@@ -24,10 +24,10 @@ jobs:
       uses: NuGet/setup-nuget@v1
       
     - name: Create install folder
-      run: mkdir $INSTALL_FOLDER
+      run: mkdir ${{ secrets.INSTALL_FOLDER }}
       
     - name: Navigate to Install folder
-      run: cd $INSTALL_FOLDER      
+      run: cd mkdir ${{ secrets.INSTALL_FOLDER }}      
 
     - name: Restore dependencies
       run: dotnet restore
