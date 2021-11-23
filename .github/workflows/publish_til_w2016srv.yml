@@ -23,8 +23,11 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1
       
-    - name: Navigate to Workspace
-      run: cd $GITHUB_WORKSPACE      
+    - name: Create install folder
+      run: mkdir $INSTALL_FOLDER
+      
+    - name: Navigate to Install folder
+      run: cd $INSTALL_FOLDER      
 
     - name: Restore dependencies
       run: dotnet restore
