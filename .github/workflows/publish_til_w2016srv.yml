@@ -10,9 +10,8 @@ jobs:
   
     steps:
     - name: Hent variabel fra secrets
-      env: 
-        INSTALL_TOKEN: ${{ secrets.NSTALL_FOLDER }}
-      run: echo env.INSTALL_FOLDER
+      run: |
+        echo ${{ secrets.INSTALL_FOLDER }}
     
     - uses: actions/checkout@v2
     
