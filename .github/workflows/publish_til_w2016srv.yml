@@ -6,15 +6,24 @@ on:
 
 jobs:
   build:
-
     runs-on: self-hosted
   
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1
+      
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE      
 
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      
+    - name: Build Solution
+      run: |
+           msbuild.exe Sandbox.sln /p:platform="Any CPU" /p:configuration="Release"
+
