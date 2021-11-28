@@ -27,11 +27,14 @@ jobs:
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1
+
+    - name: NuGet restore
+      run: nuget restore net48_webapp_test.sln
       
     - name: Create install folder
       run: |
-          # $Folder = ${{ secrets.INSTALL_FOLDER }}
-          $Folder = 'test'
+          $Folder = ${{ secrets.INSTALL_FOLDER }}
+          # $Folder = 'test'
           if (Test-Path -Path ('C:\inetpub\wwwroot\'+$Folder)) {
             echo 'katalog eksisterer fra før'
             Remove-Item -LiteralPath ('C:\inetpub\wwwroot\'+$Folder) -Force -Recurse
@@ -52,5 +55,5 @@ jobs:
       
     - name: Build Solution
       run: |
-           msbuild.exe Sandbox.sln /p:platform="Any CPU" /p:configuration="Release"
+           msbuild.exe net48_webapp_test.sln /p:platform="Any CPU" /p:configuration="Release"
 
