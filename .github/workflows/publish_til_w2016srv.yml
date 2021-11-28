@@ -43,7 +43,9 @@ jobs:
           }
       
     - name: Navigate to Install folder
-      run: cd ${{ secrets.INSTALL_FOLDER }}      
+      run: |
+          cd ('C:\inetpub\wwwroot\'+$Folder)
+          #cd ${{ secrets.INSTALL_FOLDER }}      
 
     - name: Restore dependencies
       run: dotnet restore
