@@ -33,8 +33,8 @@ jobs:
       
     - name: Create install folder
       run: |
-          $Folder = ${{ secrets.INSTALL_FOLDER }}
-          # $Folder = 'test'
+          #$Folder = ${{ secrets.INSTALL_FOLDER }}
+          $Folder = 'test'
           if (Test-Path -Path ('C:\inetpub\wwwroot\'+$Folder)) {
             echo 'katalog eksisterer fra før'
             Remove-Item -LiteralPath ('C:\inetpub\wwwroot\'+$Folder) -Force -Recurse
