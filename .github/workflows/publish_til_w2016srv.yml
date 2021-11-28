@@ -32,7 +32,7 @@ jobs:
       run: mkdir ${{ secrets.INSTALL_FOLDER }}
       
     - name: Navigate to Install folder
-      run: cd mkdir ${{ secrets.INSTALL_FOLDER }}      
+      run: cd ${{ secrets.INSTALL_FOLDER }}      
 
     - name: Restore dependencies
       run: dotnet restore
