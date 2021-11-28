@@ -31,6 +31,7 @@ jobs:
     - name: Create install folder
       run: |
           $Folder = ${{ secrets.INSTALL_FOLDER }}
+          echo $Folder
           if (Test-Path -Path $Folder) {
             echo 'katalog eksisterer fra før'
             Remove-Item -LiteralPath $Folder -Force -Recurse
