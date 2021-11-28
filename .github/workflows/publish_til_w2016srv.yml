@@ -30,16 +30,16 @@ jobs:
       
     - name: Create install folder
       run: |
-        $Folder = ${{ secrets.INSTALL_FOLDER }}
-        if (Test-Path -Path $Folder) {
-          echo 'katalog eksisterer fra før'
-          Remove-Item -LiteralPath $Folder -Force -Recurse
-          new-item -path $Folder
-        } 
-        else {
-          echo 'katalog eksisterer ikke'
-          new-item -path $Folder
-        }
+          $Folder = ${{ secrets.INSTALL_FOLDER }}
+          if (Test-Path -Path $Folder) {
+            echo 'katalog eksisterer fra før'
+            Remove-Item -LiteralPath $Folder -Force -Recurse
+            new-item -path $Folder
+          } 
+          else {
+            echo 'katalog eksisterer ikke'
+            new-item -path $Folder
+          }
       
     - name: Navigate to Install folder
       run: cd ${{ secrets.INSTALL_FOLDER }}      
