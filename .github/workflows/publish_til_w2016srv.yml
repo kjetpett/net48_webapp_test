@@ -31,16 +31,15 @@ jobs:
     - name: Create install folder
       run: |
           # $Folder = ${{ secrets.INSTALL_FOLDER }}
-          $Folder = 'C:\inetpub\wwwroot\test'
-          echo $Folder
-          if (Test-Path -Path $Folder) {
+          $Folder = 'test'
+          if (Test-Path -Path ('C:\inetpub\wwwroot\'+$Folder)) {
             echo 'katalog eksisterer fra før'
-            Remove-Item -LiteralPath $Folder -Force -Recurse
-            new-item -path $Folder
+            Remove-Item -LiteralPath ('C:\inetpub\wwwroot\'+$Folder) -Force -Recurse
+            new-item -Path 'C:\inetpub\wwwroot\' -Name $Folder -ItemType "directory"
           } 
           else {
             echo 'katalog eksisterer ikke'
-            new-item -path $Folder
+            new-item -Path 'C:\inetpub\wwwroot\' -Name $Folder -ItemType "directory"
           }
       
     - name: Navigate to Install folder
