@@ -1,11 +1,12 @@
-name: .NET
+name: .NET publish Windows 2016 
 
-on:
+on: 
   push:
     branches: [ master ]
 
 jobs:
   build:
+    environment: test
     runs-on: [self-hosted, windows, x64]
   
     steps:
@@ -21,8 +22,8 @@ jobs:
         vswhere-path: 'C:\Program Files (x86)\Microsoft Visual Studio\Installer'
         msbuild-architecture: x64
     
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1
+    # - name: Setup MSBuild
+    #   uses: microsoft/setup-msbuild@v1
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1
