@@ -30,7 +30,7 @@ jobs:
       
     - name: Create install folder
       run: |
-          $Folder = ${{ secrets.INSTALL_FOLDER }}
+          $Folder = 'c:\test'
           echo $Folder
           if (Test-Path -Path $Folder) {
             echo 'katalog eksisterer fra før'
